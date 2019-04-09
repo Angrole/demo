@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.springboot.test.dao.UserDao" >
+
+    <select id="findUserById" resultType="com.springboot.test.entity.User" parameterType="java.lang.String" >
+         select userId as user_id from users where userId = #{id}
+    </select>
+
+    <insert id="insertUser" parameterType="com.springboot.test.entity.User">
+        insert into users
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+
+            <if test="moible_no != null">
+                moible_no,
+            </if>
+            <if test="card_no != null">
+                card_no,
+            </if>
+            <if test="user_name != null">
+                user_name,
+            </if>
+            <if test="zhifubao_phone != null">
+                zhifubao_phone,
+            </if>
+            <if test="zhifubao_name != null">
+                zhifubao_name,
+            </if>
+            <if test="weixin_phone != null">
+                weixin_phone,
+            </if>
+            <if test="weixin_name != null">
+                weixin_name,
+            </if>
+            <if test="master_id != null">
+                master_id,
+            </if>
+            <if test="profit_total != null">
+                profit_total,
+            </if>
+            <if test="user_status != null">
+                user_status,
+            </if>
+            <if test="goods_total != null">
+                goods_total,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+
+            <if test="moible_no != null">
+                #{moible_no},
+            </if>
+            <if test="card_no != null">
+                #{card_no},
+            </if>
+            <if test="user_name != null">
+                #{user_name},
+            </if>
+            <if test="zhifubao_phone != null">
+                #{zhifubao_phone},
+            </if>
+            <if test="zhifubao_name != null">
+                #{zhifubao_name},
+            </if>
+            <if test="weixin_phone != null">
+                #{weixin_phone},
+            </if>
+            <if test="weixin_name != null">
+                #{weixin_name},
+            </if>
+            <if test="master_id != null">
+                #{master_id},
+            </if>
+            <if test="profit_total != null">
+                #{profit_total},
+            </if>
+            <if test="user_status != null">
+                #{user_status},
+            </if>
+            <if test="goods_total != null">
+                #{goods_total},
+            </if>
+        </trim>
+    </insert>
+
+</mapper>
